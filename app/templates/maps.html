@@ -1,0 +1,95 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>BlackRock Health</title>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['geochart'],
+            'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+        });
+        google.charts.setOnLoadCallback(drawRegionsMap);
+
+        function drawRegionsMap() {
+            var data = google.visualization.arrayToDataTable([
+                ['Country', 'Emotion'],
+                ['United Kingdom', 100],
+                ['United States', 300],
+                ['France', 400],
+                ['Germany', 500],
+                ['India', 700],
+                ['Greece', 600],
+                ['Singapore', 400],
+                ['Australia', 450]
+            ]);
+            var options = {};
+            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">BlackRock Health Monitoring System</span>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+        <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+            <header class="demo-drawer-header">
+                <img src="{{ url_for('static', filename='images/user.jpg') }}" class="demo-avatar">
+                <div class="demo-avatar-dropdown">
+                    <span>Health@BlackRock.com</span>
+                </div>
+            </header>
+            <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+                <a class="mdl-navigation__link" href="{{ url_for('index') }}"><i
+                        class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+
+                <a class="mdl-navigation__link" href="{{ url_for('settings') }}"><i
+                        class="mdl-color-text--blue-grey-400 material-icons"
+                        role="presentation">settings</i>Settings</a>
+
+                <a class="mdl-navigation__link" href="{{ url_for('about') }}"><i
+                        class="mdl-color-text--blue-grey-400 material-icons"
+                        role="presentation">help_outline</i>About</a>
+
+                <a class="mdl-navigation__link" href="{{ url_for('maps') }}"><i
+                        class="mdl-color-text--blue-grey-400 material-icons" role="presentation">sentiment_satisfied</i>Emotions Tracker</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="mdl-color--grey-100 mdl-color-text--blue-grey-400 mdl-cell mdl-cell--12-col mdl-card--border">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text mdl-color-text--blue-grey-400">
+                        <font size="5" face="Helvetica" color="#a13826"><b>Emotion Heatmaps</b></font>
+                </div>
+            </div>
+
+            <div class="mdl-color--grey-100 mdl-color-text--blue-grey-400 mdl-cell mdl-cell--12-col mdl-card--border">
+                <div>
+                    <div id="regions_div" style="width: 100%; height: 100%;"></div>
+                </div>
+            </div>
+    </div>
+    </main>
+    </div>
+    <div id="snackbar-toast" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+    </div>
+</body>
+
+</html>

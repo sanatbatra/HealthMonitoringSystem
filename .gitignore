@@ -1,0 +1,5 @@
+libraries*
+__pycache__
+*.pyc
+.vscode
+*.fs*

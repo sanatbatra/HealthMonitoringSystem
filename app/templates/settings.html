@@ -1,0 +1,142 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>BlackRock Health</title>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+    </style>
+</head>
+
+<body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">BlackRock Health Monitoring System</span>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+        <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+            <header class="demo-drawer-header">
+                <img src="{{ url_for('static', filename='images/user.jpg') }}" class="demo-avatar">
+                <div class="demo-avatar-dropdown">
+                    <span>Health@BlackRock.com</span>
+                </div>
+            </header>
+            <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+                <a class="mdl-navigation__link" href="{{ url_for('index') }}"><i
+                        class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+
+                <a class="mdl-navigation__link" href="{{ url_for('settings') }}"><i
+                        class="mdl-color-text--blue-grey-400 material-icons"
+                        role="presentation">settings</i>Settings</a>
+
+                <a class="mdl-navigation__link" href="{{ url_for('about') }}"><i
+                        class="mdl-color-text--blue-grey-400 material-icons"
+                        role="presentation">help_outline</i>About</a>
+
+                <a class="mdl-navigation__link" href="{{ url_for('maps') }}"><i
+                        class="mdl-color-text--blue-grey-400 material-icons" role="presentation">sentiment_satisfied</i>Emotions Tracker</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <div class="mdl-color--white mdl-cell mdl-cell--12-col mdl-card--border">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">
+                            <font size="7" face="Helvetica"><b>Settings</b></font>
+                    </div>
+                    <div class="mdl-layout-spacer"></div>
+                </div>
+
+                <div class="mdl-color--grey-100 mdl-color-text--blue-grey-400 mdl-cell mdl-cell--12-col
+                    mdl-card--border">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text mdl-color-text--blue-grey-400">
+                            <font size="5" face="Helvetica" color="#a13826"><b>I Want To Detect:</b></font>
+                    </div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label class="mdl-checkbox mdl-js-checkbox" for="checkbox1">
+                                        <input type="checkbox" id="checkbox1" class="mdl-checkbox__input">
+                                        <span class="mdl-checkbox__label">Eye Blink Rate</span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="mdl-checkbox mdl-js-checkbox" for="checkbox1">
+                                        <input type="checkbox" id="checkbox1" class="mdl-checkbox__input">
+                                        <span class="mdl-checkbox__label">Key Strokes</span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox2">
+                                        <input type="checkbox" id="checkbox2" class="mdl-checkbox__input">
+                                        <span class="mdl-checkbox__label">Active Time</span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="mdl-checkbox mdl-js-checkbox" for="checkbox3">
+                                        <input type="checkbox" id="checkbox3" class="mdl-checkbox__input">
+                                        <span class="mdl-checkbox__label">Distance from Monitor</span>
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mdl-color--grey-100 mdl-color-text--blue-grey-400 mdl-cell mdl-cell--12-col
+                    mdl-card--border">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text mdl-color-text--blue-grey-400">
+                            <font size="5" face="Helvetica" color="#a13826"><b>Notifications:</b></font>
+                    </div>
+                    <div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label class="mdl-checkbox mdl-js-checkbox" for="checkbox4">
+                                        <input type="checkbox" id="checkbox4" class="mdl-checkbox__input">
+                                        <span class="mdl-checkbox__label">Remind me to drink water every
+                                        </span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                        <select class="mdl-textfield__input" id="hours" name="Hours">
+                                            <option value="1">1 Hour</option>
+                                            <option value="2">2 Hours</option>
+                                            <option value="3">3 Hours</option>
+                                            <option value="4">4 Hours</option>
+                                        </select>
+                                        <label class="mdl-textfield__label" for="hours">Hours</label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+            <div id="snackbar-toast" class="mdl-js-snackbar mdl-snackbar">
+                <div class="mdl-snackbar__text"></div>
+                <button class="mdl-snackbar__action" type="button"></button>
+</body>
+
+</html>
